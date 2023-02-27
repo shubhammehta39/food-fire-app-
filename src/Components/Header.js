@@ -1,13 +1,12 @@
 import { useState } from "react";
-import unnamed from "../images/unnamed.jpg";
-import "./style.css"
+import FoodFireLogo from "../Images/Food Fire Logo.png";
 
 // Title component for display logo
 const Title = () => (
   <a href="/">
     <img
       className="logo"
-      src={unnamed}
+      src={FoodFireLogo}
       alt="Food Fire Logo"
       title="Food Fire"
     />
