@@ -3,6 +3,15 @@ import { useEffect, useState } from "react"; /* This is named export */
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer"; /* This is default export */
 
+function filterData(searchText, restaurant) {
+    const filterData = restaurant?.filter((value) =>
+        { return value?.data?.name.toLowerCase().includes(searchText.toLowerCase()) }
+    );
+    console.log(searchText);
+    console.log(restaurant);
+    return filterData;
+}
+
 const Body = () => {
 
     const [searchText, setSearchText] = useState("");
@@ -14,12 +23,7 @@ const Body = () => {
         getRestaurants();
     }, []);
 
-    function filterData(searchText, restaurants) {
-        const filterData = restaurants.filter(() =>
-            restaurants?.data?.name.toLowerCase().includes(searchText.toLowerCase())
-        );
-        return filterData;
-    }
+   
 
     async function getRestaurants() {
         try {
@@ -37,6 +41,7 @@ const Body = () => {
             const data = filterData(searchText, restaurants);
             setFilteredRestaurants(data);
             setErrorMessage("");
+            
             if (data.length === 0) {
                 setErrorMessage("No Restaurants found");
             }
@@ -57,7 +62,7 @@ const Body = () => {
                     placeholder="search a restaurant"
                     value={searchText}
                     onChange={(e) => setSearchText(e.target.value)}
-                ></input>
+                />
                 <button className="search-btn"
                     onClick = {() => {
                         searchData(searchText, allRestaurants);
@@ -72,9 +77,9 @@ const Body = () => {
             ) : (
 
                 <div className="restaurant-list">
-                    {filteredRestaurants.map((restaurant) => {
+                    {filteredRestaurants.map((restaurants) => {
                         return (
-                            <RestaurantCard key={restaurant.data.id} {...restaurant.data} />
+                            <RestaurantCard key={restaurants.data.id} {...restaurants.data} />
                         );
                     })}
                 </div>
