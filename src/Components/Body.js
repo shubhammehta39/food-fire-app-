@@ -1,5 +1,5 @@
 import { swiggy_api_URL } from "../constants";
-import { useEffect, useState } from "react"; /* This is named export */
+import { useEffect, useState } from "react"; 
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer"; /* This is default export */
 
