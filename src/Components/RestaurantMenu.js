@@ -1,17 +1,3 @@
-// import React from 'react'
-
-// const RestaurantMenu = () => {
-//   return (
-//     <div>
-//         <h1>
-
-//     RestaurantMenu
-//         </h1>
-//     </div>
-//   )
-// }
-
-// export default RestaurantMenu
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"; // import useParams for read `resId`
